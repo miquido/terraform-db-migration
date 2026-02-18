@@ -1,0 +1,26 @@
+---
+include:
+  - remote: "https://raw.githubusercontent.com/miquido/gitlab-templates/1.3.109/docker-toolkit.yml"
+  - remote: "https://raw.githubusercontent.com/miquido/gitlab-templates/1.3.109/terraform-toolkit.yml"
+  - remote: "https://raw.githubusercontent.com/miquido/gitlab-templates/1.3.109/git-toolkit.yml"
+  - remote: "https://raw.githubusercontent.com/miquido/gitlab-templates/1.3.109/gitlab-toolkit.yml"
+
+stages:
+  - build
+  - push
+
+build:
+  extends: .build-multiarch
+  stage: build
+  variables:
+    PLATFORMS: linux/arm64/v8,linux/amd64
+
+push:
+  extends: .gitlab-dockerhub-push
+  stage: push
+  environment:
+    name: prod
+  variables:
+    DOCKER_IMAGE_DESTINATION: "miquido/pg_dump:${CI_JOB_ID}-${CI_COMMIT_SHORT_SHA}"
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

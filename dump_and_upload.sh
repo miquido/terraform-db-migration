@@ -9,7 +9,7 @@ set -e
 # - PG_HOST: Database hostname
 # - PG_DATABASE: Database name
 # - PG_USER: Database user
-# - PG_PASSWORD: Database password (set via PGPASSWORD)
+# - PG_PASSWORD: Database password (set via PG_PASSWORD)
 # - PG_PORT: Database port (default: 5432)
 # - S3_BUCKET: S3 bucket name
 # - S3_PREFIX: S3 prefix/folder (default: db-dumps/)
@@ -46,7 +46,7 @@ echo ""
 echo "📦 Step 1: Creating database dump..."
 echo "Running pg_dump..."
 
-export PGPASSWORD="${PGPASSWORD}"
+export PGPASSWORD="${PG_PASSWORD}"
 
 pg_dump \
   -h "$PG_HOST" \

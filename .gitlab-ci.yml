@@ -13,7 +13,7 @@ build:
   extends: .build-multiarch
   stage: build
   variables:
-    PLATFORMS: linux/arm64/v8,linux/amd64
+    PLATFORMS: linux/amd64
 
 push:
   extends: .gitlab-dockerhub-push

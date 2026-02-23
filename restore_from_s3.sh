@@ -58,7 +58,7 @@ echo ""
 echo "🔄 Step 2: Restoring database..."
 echo "Running psql..."
 
-export PGPASSWORD="${PGPASSWORD}"
+export PGPASSWORD="${PG_PASSWORD}"
 
 START_TIME=$(date +%s)
 

@@ -72,7 +72,7 @@ variable "log_retention" {
 variable "schedule_expression" {
   description = "Cron expression for pg_dump schedule"
   type        = string
-  default     = "cron(0 2 ? * SUN *)"
+  default     = null
 }
 
 variable "destination_dump_bucket" {

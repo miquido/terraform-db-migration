@@ -6,7 +6,7 @@ locals {
 # S3 Bucket for dumps
 module "dump-s3" {
   source              = "cloudposse/s3-bucket/aws"
-  version             = "4.10.0"
+  version             = "4.15.0"
   acl                 = "private"
   enabled             = true
   user_enabled        = false

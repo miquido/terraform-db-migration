@@ -19,7 +19,7 @@ module "dump-s3" {
 
 # PG Dump ECS Task
 module "pg_dump_task" {
-  source                = "git::https://github.com/miquido/terraform-ecs-task.git?ref=tags/1.0.11"
+  source                = "git::https://github.com/miquido/terraform-ecs-task.git?ref=v1.1.0"
   name                  = "pg-dump"
   cluster_arn           = var.ecs_cluster_arn
   task_cpu              = 1024

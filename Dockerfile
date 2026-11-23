@@ -1,5 +1,5 @@
 # Use official PostgreSQL image (contains pg_dump and psql)
-FROM postgres:16
+FROM postgres:19
 
 # Install AWS CLI for S3 upload
 RUN apt-get update && \
